@@ -1,0 +1,78 @@
+'''#Denger King
+class Bank1:
+    accno=0  # to store account number
+    name=""     #to store name
+    balance=0    #to store balance
+    #function to open an account
+    def openAccount(self):
+        print("Enter Account Number")
+        accno=int(input())  #user enters a/c Number
+        print("Enter name:")
+        name=input()      #user  enter name
+        print("Enter starting balance")
+        balance=int(input()) #user enters initial amt
+        #function to display account details
+    def showAccount(self,accno,name,balance):
+        print("User account details of Canara bank")
+        print("User Account number:",accno)
+        print("Use name:",name)
+        print("initial balance:",balance)
+class Execute:
+    b1=Bank1()
+    b1.openAccount()
+    b1.showAccount(accno,name,balance)'''
+
+
+class Bank1:
+    accno = 0  # to store account number
+    name = ""  # to store name
+    balance = 0  # to store balance
+
+    # function to open an account
+    def openAccount(self):
+        print("Enter Account Number")
+        self.accno = int(input())  # user enters a/c Number
+        print("Enter name:")
+        self.name = input()  # user enter name
+        print("Enter starting balance")
+        self.balance = int(input())  # user enters initial amt
+
+    # function to display account details
+    def showAccount(self):
+        print("User account details of Canara bank")
+        print("User Account number:", self.accno)
+        print("User name:", self.name)
+        print("Balance:", self.balance)
+    def deposit(self):
+        amt=0
+        print("Enter amount you want to deposit")
+        amt=int(input())
+        self.balance+=amt
+        print("Balance after deposit",self.balance)
+    def withdraw(self):
+        amt=0
+        print("ENter amount to withdraw")
+        amt=int(input())
+        if self.balance>=amt:
+            self.balance-=amt
+            print("Balance after withdraw",self.balance)
+        else:
+            print("Insufficient balance")
+            print("Your available balance is:",self.balance)
+            
+b1 = Bank1()
+while True:
+    print("ENter your choice")
+    option=int(input())
+    match option:
+        case 1:
+            b1.openAccount()
+        case 2:
+            b1.showAccount()
+        case 3:
+            b1.deposit()
+        case 4:
+            b1.withdraw()
+        case 5:
+            print("Exiting transaction")
+            break
